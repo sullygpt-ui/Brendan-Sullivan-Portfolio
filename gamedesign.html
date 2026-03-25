@@ -215,6 +215,14 @@
         </div>
     </main>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" onclick="lightboxNav(-1, event)">&#10094;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+        <button class="lightbox-arrow lightbox-next" id="lightboxNext" onclick="lightboxNav(1, event)">&#10095;</button>
+    </div>
+
     <script>
         // Mouse Follower
         const follower = document.getElementById('mouseFollower');
@@ -275,6 +283,67 @@
             images[newIndex].classList.add('active');
             blurBg.style.backgroundImage = `url('${images[newIndex].src}')`;
         }
+
+        // Lightbox
+        let activeLightboxCarousel = null;
+
+        function openLightbox(img, carousel) {
+            activeLightboxCarousel = carousel;
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightboxImg').alt = img.alt;
+
+            const hasMultiple = carousel && carousel.querySelectorAll('.carousel-img').length > 1;
+            document.getElementById('lightboxPrev').style.display = hasMultiple ? 'flex' : 'none';
+            document.getElementById('lightboxNext').style.display = hasMultiple ? 'flex' : 'none';
+
+            document.getElementById('lightboxOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            activeLightboxCarousel = null;
+        }
+
+        function lightboxNav(direction, event) {
+            event.stopPropagation();
+            if (!activeLightboxCarousel) return;
+
+            const images = activeLightboxCarousel.querySelectorAll('.carousel-img');
+            let currentIndex = 0;
+            images.forEach((img, i) => { if (img.classList.contains('active')) currentIndex = i; });
+
+            images[currentIndex].classList.remove('active');
+            let newIndex = currentIndex + direction;
+            if (newIndex >= images.length) newIndex = 0;
+            if (newIndex < 0) newIndex = images.length - 1;
+            images[newIndex].classList.add('active');
+
+            const blurBg = activeLightboxCarousel.querySelector('.blur-bg');
+            if (blurBg) blurBg.style.backgroundImage = `url('${images[newIndex].src}')`;
+
+            document.getElementById('lightboxImg').src = images[newIndex].src;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lightboxNav(-1, { stopPropagation: () => {} });
+            if (e.key === 'ArrowRight') lightboxNav(1, { stopPropagation: () => {} });
+        });
+
+        document.querySelectorAll('.image-carousel').forEach(carousel => {
+            carousel.addEventListener('click', (e) => {
+                if (e.target.classList.contains('img-arrow') || e.target.closest('.img-arrow')) return;
+                const activeImg = carousel.querySelector('.carousel-img.active');
+                if (activeImg) openLightbox(activeImg, carousel);
+            });
+        });
+
+        document.querySelectorAll('.single-img').forEach(img => {
+            img.addEventListener('click', () => openLightbox(img, null));
+        });
     </script>
 
     <!-- Footer -->
