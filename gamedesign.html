@@ -32,78 +32,109 @@
             <!-- Roblox Games -->
             <section class="roblox-section">
                 <h2 class="section-title">Roblox Games</h2>
-                <div class="game-cards">
-                    <div class="game-card animate-on-scroll">
-                        <div class="game-card-image">
-                            <div class="image-carousel" data-game="areyousure">
-                                <img src="games/areyousure-1.png" alt="Are You Sure?" class="carousel-img active">
-                                <img src="games/areyousure-2.png" alt="Are You Sure?" class="carousel-img">
-                                <img src="games/areyousure-3.png" alt="Are You Sure?" class="carousel-img">
-                                <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
-                                <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                <div class="roblox-slider-wrap">
+                    <div class="game-cards-track">
+                        <div class="game-cards" id="robloxTrack">
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
+                                    <div class="image-carousel" data-game="areyousure">
+                                        <img src="games/areyousure-1.png" alt="Are You Sure?" class="carousel-img active">
+                                        <img src="games/areyousure-2.png" alt="Are You Sure?" class="carousel-img">
+                                        <img src="games/areyousure-3.png" alt="Are You Sure?" class="carousel-img">
+                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
+                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                                    </div>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>Are You Sure?</h3>
+                                    <p>Comedic incremental simulator game based on the TV show "Invincible".</p>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Lua</span>
+                                        <span class="tag">Simulator</span>
+                                        <span class="tag">Comedy</span>
+                                        <span class="tag">Incremental</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span>👥 1.9M+ Visits</span>
+                                    </div>
+                                    <a href="https://www.roblox.com/games/118709296219918/Are-You-Sure" class="play-btn small" target="_blank">Play</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="game-card-content">
-                            <h3>Are You Sure?</h3>
-                            <p>Comedic incremental simulator game based on the TV show "Invincible".</p>
-                            <div class="project-tags">
-                                <span class="tag-lang">Lua</span>
-                                <span class="tag">Simulator</span>
-                                <span class="tag">Comedy</span>
-                                <span class="tag">Incremental</span>
-                            </div>
-                            <div class="game-stats">
-                                <span>👥 1.9M+ Visits</span>
-                            </div>
-                            <a href="https://www.roblox.com/games/118709296219918/Are-You-Sure" class="play-btn small" target="_blank">Play</a>
-                        </div>
-                    </div>
 
-                    <div class="game-card animate-on-scroll">
-                        <div class="game-card-image">
-                            <img src="games/catan-1.png" alt="Settlers" class="single-img">
-                        </div>
-                        <div class="game-card-content">
-                            <h3>Settlers</h3>
-                            <p>A faithful recreation of the classic board game Catan, built for an online multiplayer experience.</p>
-                            <div class="project-tags">
-                                <span class="tag-lang">Lua</span>
-                                <span class="tag">Strategy</span>
-                                <span class="tag">Multiplayer</span>
-                                <span class="tag">Board Game</span>
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
+                                    <img src="games/catan-1.png" alt="Settlers" class="single-img">
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>Settlers</h3>
+                                    <p>A faithful recreation of the classic board game Catan, built for an online multiplayer experience.</p>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Lua</span>
+                                        <span class="tag">Strategy</span>
+                                        <span class="tag">Multiplayer</span>
+                                        <span class="tag">Board Game</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span>🚧 Coming Soon</span>
+                                    </div>
+                                    <a href="https://www.roblox.com/games/15871468358/Settlers" class="dev-btn small" target="_blank">In Development</a>
+                                </div>
                             </div>
-                            <div class="game-stats">
-                                <span>🚧 Coming Soon</span>
-                            </div>
-                            <a href="https://www.roblox.com/games/15871468358/Settlers" class="dev-btn small" target="_blank">In Development</a>
-                        </div>
-                    </div>
 
-                    <div class="game-card animate-on-scroll">
-                        <div class="game-card-image">
-                            <div class="image-carousel" data-game="seeker">
-                                <img src="games/seeker-1.png" alt="The Seeker" class="carousel-img active">
-                                <img src="games/seeker-2.png" alt="The Seeker" class="carousel-img">
-                                <img src="games/seeker-3.png" alt="The Seeker" class="carousel-img">
-                                <img src="games/seeker-4.png" alt="The Seeker" class="carousel-img">
-                                <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
-                                <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
+                                    <div class="image-carousel" data-game="seeker">
+                                        <img src="games/seeker-1.png" alt="The Seeker" class="carousel-img active">
+                                        <img src="games/seeker-2.png" alt="The Seeker" class="carousel-img">
+                                        <img src="games/seeker-3.png" alt="The Seeker" class="carousel-img">
+                                        <img src="games/seeker-4.png" alt="The Seeker" class="carousel-img">
+                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
+                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                                    </div>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>The Seeker</h3>
+                                    <p>A survival horror experience where players must outwit and escape a terrifying monster lurking in the shadows.</p>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Lua</span>
+                                        <span class="tag">Horror</span>
+                                        <span class="tag">Survival</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span>👥 400+ Visits</span>
+                                    </div>
+                                    <a href="https://www.roblox.com/games/4932435542/The-Seeker" class="play-btn small" target="_blank">Play</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="game-card-content">
-                            <h3>The Seeker</h3>
-                            <p>A survival horror experience where players must outwit and escape a terrifying monster lurking in the shadows.</p>
-                            <div class="project-tags">
-                                <span class="tag-lang">Lua</span>
-                                <span class="tag">Horror</span>
-                                <span class="tag">Survival</span>
+
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
+                                    <div class="image-carousel" data-game="sai">
+                                        <img src="games/SAI1.png" alt="Steal an Invincible" class="carousel-img active">
+                                        <img src="games/SAI2.png" alt="Steal an Invincible" class="carousel-img">
+                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
+                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                                    </div>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>Steal an Invincible</h3>
+                                    <p>Steal and collect Invincible characters before your opponents can in this competitive Roblox experience.</p>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Lua</span>
+                                        <span class="tag">Action</span>
+                                        <span class="tag">Comedy</span>
+                                        <span class="tag">Competitive</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span>👥 10K+ Visits</span>
+                                    </div>
+                                    <a href="https://www.roblox.com/games/104722214376141/Steal-an-Invincible" class="play-btn small" target="_blank">Play</a>
+                                </div>
                             </div>
-                            <div class="game-stats">
-                                <span>👥 400+ Visits</span>
-                            </div>
-                            <a href="https://www.roblox.com/games/4932435542/The-Seeker" class="play-btn small" target="_blank">Play</a>
                         </div>
                     </div>
+                    <button class="cards-arrow cards-prev" id="robloxPrev" onclick="slideRoblox(-1)">&#10094;</button>
+                    <button class="cards-arrow cards-next" id="robloxNext" onclick="slideRoblox(1)">&#10095;</button>
                 </div>
 
                 <!-- Roblox CTA Banner -->
@@ -215,6 +246,14 @@
         </div>
     </main>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" onclick="lightboxNav(-1, event)">&#10094;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+        <button class="lightbox-arrow lightbox-next" id="lightboxNext" onclick="lightboxNav(1, event)">&#10095;</button>
+    </div>
+
     <script>
         // Mouse Follower
         const follower = document.getElementById('mouseFollower');
@@ -275,6 +314,91 @@
             images[newIndex].classList.add('active');
             blurBg.style.backgroundImage = `url('${images[newIndex].src}')`;
         }
+
+        // Roblox card slider
+        let robloxPage = 0;
+
+        function slideRoblox(direction) {
+            const track = document.getElementById('robloxTrack');
+            const cards = track.querySelectorAll('.game-card');
+            const maxPage = cards.length - 3;
+
+            robloxPage = Math.max(0, Math.min(maxPage, robloxPage + direction));
+
+            track.style.transform = `translateX(-${cards[robloxPage].offsetLeft}px)`;
+
+            const prev = document.getElementById('robloxPrev');
+            const next = document.getElementById('robloxNext');
+            prev.style.opacity = robloxPage > 0 ? '1' : '0.35';
+            prev.style.pointerEvents = robloxPage > 0 ? 'auto' : 'none';
+            next.style.opacity = robloxPage < maxPage ? '1' : '0.35';
+            next.style.pointerEvents = robloxPage < maxPage ? 'auto' : 'none';
+        }
+
+        // Init roblox slider arrow states
+        document.getElementById('robloxPrev').style.opacity = '0.35';
+        document.getElementById('robloxPrev').style.pointerEvents = 'none';
+
+        // Lightbox
+        let activeLightboxCarousel = null;
+
+        function openLightbox(img, carousel) {
+            activeLightboxCarousel = carousel;
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightboxImg').alt = img.alt;
+
+            const hasMultiple = carousel && carousel.querySelectorAll('.carousel-img').length > 1;
+            document.getElementById('lightboxPrev').style.display = hasMultiple ? 'flex' : 'none';
+            document.getElementById('lightboxNext').style.display = hasMultiple ? 'flex' : 'none';
+
+            document.getElementById('lightboxOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+            activeLightboxCarousel = null;
+        }
+
+        function lightboxNav(direction, event) {
+            event.stopPropagation();
+            if (!activeLightboxCarousel) return;
+
+            const images = activeLightboxCarousel.querySelectorAll('.carousel-img');
+            let currentIndex = 0;
+            images.forEach((img, i) => { if (img.classList.contains('active')) currentIndex = i; });
+
+            images[currentIndex].classList.remove('active');
+            let newIndex = currentIndex + direction;
+            if (newIndex >= images.length) newIndex = 0;
+            if (newIndex < 0) newIndex = images.length - 1;
+            images[newIndex].classList.add('active');
+
+            const blurBg = activeLightboxCarousel.querySelector('.blur-bg');
+            if (blurBg) blurBg.style.backgroundImage = `url('${images[newIndex].src}')`;
+
+            document.getElementById('lightboxImg').src = images[newIndex].src;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lightboxNav(-1, { stopPropagation: () => {} });
+            if (e.key === 'ArrowRight') lightboxNav(1, { stopPropagation: () => {} });
+        });
+
+        document.querySelectorAll('.image-carousel').forEach(carousel => {
+            carousel.addEventListener('click', (e) => {
+                if (e.target.classList.contains('img-arrow') || e.target.closest('.img-arrow')) return;
+                const activeImg = carousel.querySelector('.carousel-img.active');
+                if (activeImg) openLightbox(activeImg, carousel);
+            });
+        });
+
+        document.querySelectorAll('.single-img').forEach(img => {
+            img.addEventListener('click', () => openLightbox(img, null));
+        });
     </script>
 
     <!-- Footer -->

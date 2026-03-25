@@ -410,8 +410,10 @@ body {
     background-clip: text;
     letter-spacing: -0.03em;
     position: relative;
-    display: inline-block;
+    display: block;
+    width: fit-content;
     padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-title::after {
@@ -689,6 +691,7 @@ body {
 
 .game-card-image.blurfit {
     overflow: hidden;
+    aspect-ratio: 1 / 1;
 }
 
 .game-card-image.blurfit .image-carousel {
@@ -792,6 +795,133 @@ body {
 
 .img-arrow.prev { left: 12px; }
 .img-arrow.next { right: 12px; }
+
+.image-carousel { cursor: zoom-in; }
+
+/* Roblox card slider */
+.roblox-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-cards-track {
+    flex: 1;
+    overflow: hidden;
+    min-width: 0;
+}
+
+#robloxTrack {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+#robloxTrack > .game-card {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    min-width: 0;
+}
+
+.cards-arrow {
+    flex-shrink: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    font-size: 1rem;
+}
+
+.cards-arrow:hover {
+    background: var(--accent, #7c3aed);
+    border-color: transparent;
+    color: white;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.3rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10000;
+}
+
+.lightbox-arrow:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
+.game-card-image .single-img { cursor: zoom-in; }
 
 .game-card-content {
     padding: 1.5rem;
@@ -1268,6 +1398,29 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .roblox-slider-wrap {
+        display: block;
+    }
+
+    .game-cards-track {
+        overflow: visible;
+    }
+
+    #robloxTrack {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        transform: none !important;
+        width: auto;
+    }
+
+    #robloxTrack > .game-card {
+        flex: none;
+    }
+
+    .cards-arrow {
+        display: none;
+    }
+
     .documents-grid,
     .about-contact-grid {
         grid-template-columns: 1fr;
@@ -1321,6 +1474,10 @@ body {
 
 @media (max-width: 600px) {
     .game-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #robloxTrack {
         grid-template-columns: 1fr;
     }
 
