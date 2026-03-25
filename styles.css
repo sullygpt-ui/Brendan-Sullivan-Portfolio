@@ -691,7 +691,6 @@ body {
 
 .game-card-image.blurfit {
     overflow: hidden;
-    aspect-ratio: 1 / 1;
 }
 
 .game-card-image.blurfit .image-carousel {
@@ -864,8 +863,9 @@ body {
 }
 
 .lightbox-img {
-    max-width: 90vw;
-    max-height: 88vh;
+    width: min(90vw, 1400px);
+    height: calc(min(90vw, 1400px) * 9 / 16);
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 6px;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
