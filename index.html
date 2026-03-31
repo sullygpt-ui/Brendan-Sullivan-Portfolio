@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendan Sullivan | Software Engineer</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
     <!-- Mouse Follower -->
@@ -17,7 +18,7 @@
     <div class="bg-blob bg-blob-2"></div>
     <div class="bg-blob bg-blob-3"></div>
 
-    <header class="header">
+    <header class="header header-compact">
         <div class="hero-badge">
             Available for opportunities
         </div>
@@ -33,9 +34,60 @@
             <a href="gamedesign.html" class="tab">Game Design</a>
             <a href="contact.html" class="tab">Contact</a>
         </nav>
-
     </header>
 
+    <main class="page-content" id="main-content">
+        <div class="container">
+            <!-- About Me Section -->
+            <section class="about-section">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <img src="photo.png" alt="Brendan Sullivan" class="profile-photo">
+                    <p>Hi, I'm Brendan! I'm a Computer Science student at the University of Wisconsin-Madison with a passion for software development, IT, and game design.</p>
+                    <p>I enjoy building projects that challenge me to learn new technologies and solve interesting problems. From full-stack web applications to game development, I love tackling problems that require creative thinking and clean code.</p>
+                    <p>I also have hands-on experience in IT support, where I've developed strong troubleshooting and communication skills. When I'm not coding, you can find me exploring new games, working on my own game designs, or diving into the latest tech.</p>
+                </div>
+            </section>
+
+            <!-- Resume and Recommendations Side by Side -->
+            <div class="documents-grid">
+                <!-- Resume Section -->
+                <section class="document-section">
+                    <h2>Resume</h2>
+                    <div class="pdf-viewer" id="resume-viewer">
+                        <canvas id="resume-canvas"></canvas>
+                    </div>
+                    <div class="doc-buttons">
+                        <a href="BrendanSullivanResume.pdf" target="_blank" class="view-btn">View Resume</a>
+                        <a href="BrendanSullivanResume.pdf" download class="download-icon-btn" title="Download">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Recommendations Section -->
+                <section class="document-section">
+                    <h2>Recommendations</h2>
+                    <div class="carousel">
+                        <div class="pdf-viewer" id="rec-viewer">
+                            <canvas id="rec-canvas"></canvas>
+                        </div>
+                    </div>
+                    <div class="doc-buttons">
+                        <a href="recommendations/rec1.pdf" target="_blank" class="view-btn" id="view-rec-btn">View Recommendation</a>
+                        <a href="recommendations/rec1.pdf" download class="download-icon-btn" id="download-rec-btn" title="Download">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="changeRecommendation(-1)">&#10094;</button>
+                        <div class="carousel-dots" id="carousel-dots"></div>
+                        <button class="carousel-btn next" onclick="changeRecommendation(1)">&#10095;</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -87,11 +139,11 @@
 
             if (!isDeleting && charIndex === currentPhrase.length) {
                 isDeleting = true;
-                typingSpeed = 2000; // Pause at end
+                typingSpeed = 2000;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 500; // Pause before typing new phrase
+                typingSpeed = 500;
             }
 
             setTimeout(typeText, typingSpeed);
@@ -106,23 +158,73 @@
             follower.style.top = e.clientY + 'px';
         });
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        async function renderPDF(url, canvasId, containerId) {
+            try {
+                const pdf = await pdfjsLib.getDocument(url).promise;
+                const page = await pdf.getPage(1);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+                const canvas = document.getElementById(canvasId);
+                const container = document.getElementById(containerId);
+                const ctx = canvas.getContext('2d');
+
+                const containerWidth = container.clientWidth - 20;
+                const viewport = page.getViewport({ scale: 1 });
+                const scale = containerWidth / viewport.width;
+                const scaledViewport = page.getViewport({ scale: scale * 2 });
+
+                canvas.width = scaledViewport.width;
+                canvas.height = scaledViewport.height;
+
+                await page.render({
+                    canvasContext: ctx,
+                    viewport: scaledViewport
+                }).promise;
+            } catch (error) {
+                console.log('PDF loading:', error.message);
+            }
+        }
+
+        renderPDF('BrendanSullivanResume.pdf', 'resume-canvas', 'resume-viewer');
+
+        const recommendations = [
+            'recommendations/rec1.pdf',
+            'recommendations/rec2.pdf'
+        ];
+
+        let currentRec = 0;
+
+        const dotsContainer = document.getElementById('carousel-dots');
+        recommendations.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot' + (index === 0 ? ' active' : '');
+            dot.onclick = () => goToRecommendation(index);
+            dotsContainer.appendChild(dot);
         });
+
+        renderPDF(recommendations[0], 'rec-canvas', 'rec-viewer');
+
+        function changeRecommendation(direction) {
+            currentRec += direction;
+            if (currentRec >= recommendations.length) currentRec = 0;
+            if (currentRec < 0) currentRec = recommendations.length - 1;
+            updateRecommendation();
+        }
+
+        function goToRecommendation(index) {
+            currentRec = index;
+            updateRecommendation();
+        }
+
+        function updateRecommendation() {
+            renderPDF(recommendations[currentRec], 'rec-canvas', 'rec-viewer');
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.className = 'dot' + (index === currentRec ? ' active' : '');
+            });
+            document.getElementById('view-rec-btn').href = recommendations[currentRec];
+            document.getElementById('download-rec-btn').href = recommendations[currentRec];
+        }
     </script>
 </body>
 </html>
