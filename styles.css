@@ -172,6 +172,11 @@ body {
     padding: 2rem;
 }
 
+.header-compact {
+    min-height: auto;
+    padding: 5rem 2rem 3rem;
+}
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -946,6 +951,30 @@ body {
     line-height: 1.6;
 }
 
+.game-roles {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.game-roles li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.game-roles li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
 .game-stats {
     display: flex;
     align-items: center;
@@ -1188,6 +1217,11 @@ body {
     margin-bottom: 3rem;
 }
 
+.hero-contact-links {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
 .contact-link {
     display: flex;
     align-items: center;
@@ -1302,6 +1336,11 @@ body {
 }
 
 .about-section h2,
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .contact-section h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
