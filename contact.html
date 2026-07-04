@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Brendan Sullivan</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
 </head>
 <body>
-    <!-- Mouse Follower -->
-    <div class="mouse-follower" id="mouseFollower"></div>
-
-    <!-- Animated Background -->
-    <div class="bg-gradient-animated"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-blob bg-blob-1"></div>
-    <div class="bg-blob bg-blob-2"></div>
-    <div class="bg-blob bg-blob-3"></div>
+    <button class="theme-toggle" id="themeToggle" role="switch" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="toggle-knob">
+            <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+        </span>
+    </button>
 
     <header class="header-top">
         <a href="index.html" class="name-link">Brendan Sullivan</a>
@@ -70,13 +68,6 @@
     </main>
 
     <script>
-        // Mouse Follower
-        const follower = document.getElementById('mouseFollower');
-        document.addEventListener('mousemove', (e) => {
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
-        });
-
         // Handle contact form submission
         const contactForm = document.querySelector('.contact-form');
         contactForm.addEventListener('submit', async function(e) {

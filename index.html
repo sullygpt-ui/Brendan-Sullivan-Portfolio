@@ -5,29 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendan Sullivan | Software Engineer</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
-    <!-- Mouse Follower -->
-    <div class="mouse-follower" id="mouseFollower"></div>
-
-    <!-- Animated Background -->
-    <div class="bg-gradient-animated"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-blob bg-blob-1"></div>
-    <div class="bg-blob bg-blob-2"></div>
-    <div class="bg-blob bg-blob-3"></div>
+    <button class="theme-toggle" id="themeToggle" role="switch" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="toggle-knob">
+            <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+        </span>
+    </button>
 
     <header class="header header-compact">
-        <div class="hero-badge">
-            Available for opportunities
-        </div>
         <h1 class="name">
             <span class="name-gradient">Brendan Sullivan</span>
         </h1>
-        <p class="subtitle">
-            <span class="typing-text" id="typingText"></span><span class="typing-cursor"></span>
-        </p>
+        <p class="subtitle">Computer Science &amp; Game Design @ UW&ndash;Madison</p>
         <nav class="tabs">
             <a href="projects.html" class="tab">Projects</a>
             <a href="websites.html" class="tab">Websites</a>
@@ -109,56 +102,6 @@
     </footer>
 
     <script>
-        // Typing Animation
-        const phrases = [
-            "Computer Science Student at UW-Madison",
-            "Game Design Student at UW-Madison",
-            "Software Engineer",
-            "IT Support Analyst",
-            "Game Developer",
-            "Full Stack Developer"
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 50;
-
-        function typeText() {
-            const currentPhrase = phrases[phraseIndex];
-            const typingElement = document.getElementById('typingText');
-
-            if (isDeleting) {
-                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 30;
-            } else {
-                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 50;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typingSpeed = 2000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 500;
-            }
-
-            setTimeout(typeText, typingSpeed);
-        }
-
-        typeText();
-
-        // Mouse Follower
-        const follower = document.getElementById('mouseFollower');
-        document.addEventListener('mousemove', (e) => {
-            follower.style.left = e.clientX + 'px';
-            follower.style.top = e.clientY + 'px';
-        });
-
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
         async function renderPDF(url, canvasId, containerId) {
