@@ -529,6 +529,19 @@ h1, h2, h3, h4 {
     overflow: hidden;
 }
 
+.game-card-image.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-dim), var(--surface));
+    color: var(--accent);
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
 .game-card-image.blurfit .blur-bg {
     position: absolute;
     top: -10px;

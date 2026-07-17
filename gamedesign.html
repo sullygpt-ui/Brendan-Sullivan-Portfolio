@@ -16,12 +16,12 @@
     </button>
 
     <header class="header-top">
-        <a href="index.html" class="name-link">Brendan Sullivan</a>
+        <a href="/" class="name-link">Brendan Sullivan</a>
         <nav class="tabs">
-            <a href="projects.html" class="tab">Projects</a>
-            <a href="websites.html" class="tab">Websites</a>
-            <a href="gamedesign.html" class="tab active">Game Design</a>
-            <a href="contact.html" class="tab">Contact</a>
+            <a href="projects" class="tab">Projects</a>
+            <a href="websites" class="tab">Websites</a>
+            <a href="gamedesign" class="tab active">Game Design</a>
+            <a href="contact" class="tab">Contact</a>
         </nav>
     </header>
 
@@ -36,6 +36,67 @@
                         <div class="game-cards" id="robloxTrack">
                             <div class="game-card animate-on-scroll">
                                 <div class="game-card-image">
+                                    <div class="image-carousel" data-game="zombies">
+                                        <img src="games/zombies-1.png" alt="Untitled Zombies Project" class="carousel-img active">
+                                        <img src="games/zombies-2.png" alt="Untitled Zombies Project" class="carousel-img">
+                                        <img src="games/zombies-3.png" alt="Untitled Zombies Project" class="carousel-img">
+                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
+                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                                    </div>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>Untitled Zombies Project <span class="game-year">2026</span></h3>
+                                    <p>A round-based zombies survival experience currently in active development.</p>
+                                    <ul class="game-roles">
+                                        <li>Leading development on a round-based zombies experience, programming and building systems including weapons, enemy AI, and player progression with server-side validation</li>
+                                        <li>Recruited and directed a team of animators, modelers, and mappers, coordinating asset pipelines and integrating their work into in-game systems</li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Luau</span>
+                                        <span class="tag">Zombies</span>
+                                        <span class="tag">Survival</span>
+                                        <span class="tag">Round-Based</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Coming Soon</span>
+                                    </div>
+                                    <span class="dev-btn small">In Development</span>
+                                </div>
+                            </div>
+
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
+                                    <div class="image-carousel" data-game="sai">
+                                        <img src="games/SAI1.png" alt="Steal an Invincible" class="carousel-img active">
+                                        <img src="games/SAI2.png" alt="Steal an Invincible" class="carousel-img">
+                                        <img src="games/SAI3.png" alt="Steal an Invincible" class="carousel-img">
+                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
+                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
+                                    </div>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3>Steal an Invincible <span class="game-year">2026</span></h3>
+                                    <p>Steal and collect Invincible characters before your opponents can in this competitive Roblox experience.</p>
+                                    <ul class="game-roles">
+                                        <li>Designed and implemented real-time competitive gameplay loop with anti-cheat validation</li>
+                                        <li>Built character collection system with rarity tiers and spawn balancing</li>
+                                        <li>Tuned game balance through playtesting, reaching 500K+ visits</li>
+                                    </ul>
+                                    <div class="project-tags">
+                                        <span class="tag-lang">Luau</span>
+                                        <span class="tag">Action</span>
+                                        <span class="tag">Comedy</span>
+                                        <span class="tag">Competitive</span>
+                                    </div>
+                                    <div class="game-stats">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> 500K+ Visits</span>
+                                    </div>
+                                    <a href="https://www.roblox.com/games/104722214376141/Steal-an-Invincible" class="play-btn small" target="_blank">Play</a>
+                                </div>
+                            </div>
+
+                            <div class="game-card animate-on-scroll">
+                                <div class="game-card-image">
                                     <div class="image-carousel" data-game="areyousure">
                                         <img src="games/areyousure-1.png" alt="Are You Sure?" class="carousel-img active">
                                         <img src="games/areyousure-2.png" alt="Are You Sure?" class="carousel-img">
@@ -45,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="game-card-content">
-                                    <h3>Are You Sure? <span class="game-year">2026</span></h3>
+                                    <h3>Are You Sure? <span class="game-year">2025</span></h3>
                                     <p>Comedic incremental simulator game based on the TV show "Invincible".</p>
                                     <ul class="game-roles">
                                         <li>Sole developer, designed and built all game systems in Lua</li>
@@ -68,31 +129,27 @@
 
                             <div class="game-card animate-on-scroll">
                                 <div class="game-card-image">
-                                    <div class="image-carousel" data-game="sai">
-                                        <img src="games/SAI1.png" alt="Steal an Invincible" class="carousel-img active">
-                                        <img src="games/SAI2.png" alt="Steal an Invincible" class="carousel-img">
-                                        <button class="img-arrow prev" onclick="changeImage(this, -1)">&#10094;</button>
-                                        <button class="img-arrow next" onclick="changeImage(this, 1)">&#10095;</button>
-                                    </div>
+                                    <img src="games/catan-1.png" alt="Settlers" class="single-img">
                                 </div>
                                 <div class="game-card-content">
-                                    <h3>Steal an Invincible <span class="game-year">2025</span></h3>
-                                    <p>Steal and collect Invincible characters before your opponents can in this competitive Roblox experience.</p>
+                                    <h3>Settlers <span class="game-year">2024</span></h3>
+                                    <p>A faithful recreation of the classic board game Catan, built for an online multiplayer experience.</p>
                                     <ul class="game-roles">
-                                        <li>Designed and implemented real-time competitive gameplay loop with anti-cheat validation</li>
-                                        <li>Built character collection system with rarity tiers and spawn balancing</li>
-                                        <li>Tuned game balance through playtesting, reaching 500K+ visits</li>
+                                        <li>Led a team of developers, coordinated tasks, set milestones, and reviewed code</li>
+                                        <li>Architecting full multiplayer game state synchronization across clients</li>
+                                        <li>Implementing complex board game logic including resource trading, dice events, and turn management</li>
+                                        <li>Designing scalable data structures to support dynamic board generation and player sessions</li>
                                     </ul>
                                     <div class="project-tags">
                                         <span class="tag-lang">Luau</span>
-                                        <span class="tag">Action</span>
-                                        <span class="tag">Comedy</span>
-                                        <span class="tag">Competitive</span>
+                                        <span class="tag">Strategy</span>
+                                        <span class="tag">Multiplayer</span>
+                                        <span class="tag">Board Game</span>
                                     </div>
                                     <div class="game-stats">
-                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> 500K+ Visits</span>
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Coming Soon</span>
                                     </div>
-                                    <a href="https://www.roblox.com/games/104722214376141/Steal-an-Invincible" class="play-btn small" target="_blank">Play</a>
+                                    <a href="https://www.roblox.com/games/15871468358/Settlers" class="dev-btn small" target="_blank">In Development</a>
                                 </div>
                             </div>
 
@@ -126,32 +183,6 @@
                                         <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> 400+ Visits</span>
                                     </div>
                                     <a href="https://www.roblox.com/games/4932435542/The-Seeker" class="play-btn small" target="_blank">Play</a>
-                                </div>
-                            </div>
-
-                            <div class="game-card animate-on-scroll">
-                                <div class="game-card-image">
-                                    <img src="games/catan-1.png" alt="Settlers" class="single-img">
-                                </div>
-                                <div class="game-card-content">
-                                    <h3>Settlers</h3>
-                                    <p>A faithful recreation of the classic board game Catan, built for an online multiplayer experience.</p>
-                                    <ul class="game-roles">
-                                        <li>Led a team of developers, coordinated tasks, set milestones, and reviewed code</li>
-                                        <li>Architecting full multiplayer game state synchronization across clients</li>
-                                        <li>Implementing complex board game logic including resource trading, dice events, and turn management</li>
-                                        <li>Designing scalable data structures to support dynamic board generation and player sessions</li>
-                                    </ul>
-                                    <div class="project-tags">
-                                        <span class="tag-lang">Luau</span>
-                                        <span class="tag">Strategy</span>
-                                        <span class="tag">Multiplayer</span>
-                                        <span class="tag">Board Game</span>
-                                    </div>
-                                    <div class="game-stats">
-                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Coming Soon</span>
-                                    </div>
-                                    <a href="https://www.roblox.com/games/15871468358/Settlers" class="dev-btn small" target="_blank">In Development</a>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +386,7 @@
             const cards = track.querySelectorAll('.game-card');
             const maxPage = cards.length - 3;
 
-            robloxPage = Math.max(0, Math.min(maxPage, robloxPage + direction));
+            robloxPage = Math.max(0, Math.min(maxPage, robloxPage + direction * 3));
 
             track.style.transform = `translateX(-${cards[robloxPage].offsetLeft}px)`;
 
