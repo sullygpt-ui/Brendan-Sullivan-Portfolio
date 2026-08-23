@@ -80,20 +80,6 @@ html.dark .img-arrow {
     background: rgba(13, 20, 38, 0.85);
 }
 
-html.dark .tag {
-    border-color: rgba(88, 166, 255, 0.3);
-}
-
-html.dark .tag-lang {
-    background: rgba(74, 222, 128, 0.12);
-    color: #7FE8A5;
-    border-color: rgba(74, 222, 128, 0.28);
-}
-
-html.dark .tag-lang:hover {
-    border-color: rgba(74, 222, 128, 0.55);
-}
-
 /* ========================================
    THEME TOGGLE
    ======================================== */
@@ -399,44 +385,6 @@ h1, h2, h3, h4 {
     margin-bottom: 1.25rem;
     font-size: 0.95rem;
     line-height: 1.7;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
-}
-
-.tag {
-    padding: 0.3rem 0.7rem;
-    background: var(--accent-dim);
-    color: var(--accent);
-    border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    border: 1px solid rgba(18, 115, 230, 0.25);
-    transition: border-color 0.2s var(--ease-out);
-}
-
-.tag:hover {
-    border-color: var(--border-accent);
-}
-
-.tag-lang {
-    padding: 0.3rem 0.7rem;
-    background: rgba(26, 127, 78, 0.1);
-    color: #1A7F4E;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    border: 1px solid rgba(26, 127, 78, 0.3);
-    transition: border-color 0.2s var(--ease-out);
-}
-
-.tag-lang:hover {
-    border-color: rgba(26, 127, 78, 0.55);
 }
 
 .project-links {
@@ -818,6 +766,7 @@ h1, h2, h3, h4 {
 
 .game-stats {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
     color: var(--text-muted);
@@ -1018,7 +967,17 @@ h1, h2, h3, h4 {
     padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     border: 1px solid var(--border);
+}
+
+/* Canvas is rendered at 2x for sharpness; scale it back down to fit the box */
+.pdf-viewer canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: var(--radius-sm);
 }
 
 .doc-buttons {
@@ -1442,6 +1401,11 @@ h1, h2, h3, h4 {
 
     .documents-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Single column: let the PDF show its full page instead of clipping it */
+    .pdf-viewer {
+        height: auto;
     }
 }
 
